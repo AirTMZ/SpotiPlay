@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using SpotifyPlaylistCreator.Properties;
 using System.Text.RegularExpressions;
 using System.Linq;
-using static System.Net.Mime.MediaTypeNames;
 using System.IO;
 
 namespace SpotifyPlaylistCreator
@@ -292,7 +291,7 @@ namespace SpotifyPlaylistCreator
                 {
                     //username correct
                     LogoImage.Hide(); UsernameInput.Hide(); UsernameBox.Hide(); TokenInput.Hide(); TokenBox.Hide(); tokenButton.Hide(); nextButton.Hide(); errorLabel.Hide();
-                    token_label_back.Show(); token_label.Show();
+                    logoutButton.Show(); token_label_back.Show(); token_label.Show();
 
                     //contributing window default
                     contributersLabel.Show(); userLabel1.Show(); profilePhoto1.Show();
@@ -637,7 +636,8 @@ namespace SpotifyPlaylistCreator
         private void newUserExit_Click(object sender, EventArgs e)
         {
             newUserExit.Hide(); newUserInput.Hide(); newUserEnter.Hide(); newUserLabel.Hide();
-            newUserBack.Hide();
+            newUserBack.Hide(); exportLabel.Hide(); newUserInput.Hide();
+            newUserInput.Text = "";
         }
 
         private void newUserExit_MouseHover(object sender, EventArgs e)
@@ -1062,10 +1062,9 @@ namespace SpotifyPlaylistCreator
 
 
             cmd.WaitForExit();
-            MessageBox.Show("Playlist has been exported Successfully :)");
-
-            System.Windows.Forms.Clipboard.SetText($"https://open.spotify.com/playlist/{id}");
-
+            newUserInput.Text = $"https://open.spotify.com/playlist/{id}";
+            exportLabel.Show(); newUserExit.Show(); newUserBack.Show(); newUserInput.Show();
+            newUserBack.BringToFront(); newUserExit.BringToFront(); exportLabel.BringToFront(); newUserInput.BringToFront();
         }
 
 
@@ -1340,6 +1339,11 @@ namespace SpotifyPlaylistCreator
                 }
             }
             playlistNameLabel.Text = (String.Join("", s).Substring(0, j));
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("beep beep boop logged out");
         }
     }
 }

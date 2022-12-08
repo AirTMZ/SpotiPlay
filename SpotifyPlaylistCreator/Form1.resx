@@ -24105,6 +24105,30 @@
         6Rq6wzrlRcX8B5vsMLAj09wGAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="logoutButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAMMAAAA4CAYAAABAKkxwAAAABGdBTUEAALGPC/xhBQAABDtJREFUeF7t
+        3c1LVFEYBvD+lvIT/Epjsk3bNpELdXT8WlpQuAhqVe50VxC0i9rZKmvlpmhTBBYWQR8GropaSAgpKYbG
+        yWfuPTnOvHP1nPPeO4LPC7/VTHNHeJ+559xz7u3YmXO9hoh6DcNAFGMYiGIMA1GMYSCKZRaG7p4+0zkx
+        YFpuF0zzgyFTNzdqTjwfNcdfjRH9h55omB0xjTPDxV5Bz6B3pJ7SlnoYui7mTePDYTY+BcEPKIIh9ZiW
+        1MKAL16/8+sv/WFEvurnRkzH9XRCoR6G3EB/8Uwg/SFEWjCUyg3oDp9Uw9A2OcjhEGWmbqfX2if1zhJq
+        YWidLohfmChtrVMFsSddqYSBQaBa0whEcBgYBDosQgMRFAbMEaQvRVQrIXMI7zDgqhEny5U6Xl8yj5Zf
+        mNWtdVOt8Frh47T47ykMJtW+V5m8w9DweET8MkcZgpAUgtK68+2J+BkUrmlmWOzZ/XiFAYse0pc46maX
+        X8atHtXn31/N/OpihWcrb83ZhaviZ5AOn9VqrzBwZVm2tr0Rx8CY8+9viO+hbGClWurdJM5hOLmTOOng
+        NBbHIDojSK9TtrrG82IPV+McBmyYkg5Mu2HAUEh63QXmH4UPnGSHcJ07OIXhdE+feFCK2NIIw/fNn8XP
+        wpUp6XXaH64sdV84+JUlpzBwiJTMVmgYMLkuLQbCX+fEwYdKTmHAzRbSASliS+PMcG3pXvxpUTEQflpu
+        HXxV2ikM3JqdzJZGGICBCNd8f0jsZYlTGLCHXDogRWxphQEYiDAul1idwsDtF8lsaYYBGAh/mERLvSxx
+        CoN0MNplSzsMwED4k3pZwjAoslUtDC3z4+bd2pJZ39708ufvVnyEqJY2fojHob2kXpZwmKTIVrUwXPly
+        N36HXp16c1k8FkVSGyZxT1IyWzwzHB646CP1ssQpDNyKkcxWFnMG7JCV3kd7uWzJcAoDF92S2dIOA4Pg
+        L7VFN27HSGZLMwwMQpjUtmNgox4n0dXZ0goDgxAutY160MQtGVXZ0ggDgxDOZSsGOIcBDxKWDkx6YSjf
+        tcog+HEZIoFzGICXWGW2NM4M9n4GBsFPJrd9AifSMlsaYSje6cbHyXjzeVK3VxiAc4dKtj7xHuiaanRY
+        aCvlHYZcng8RK8enY9QeejKXz/ghYtDOx0vugfF9aeEMMf9rscLTlQU+Nykl7Tdr8HhJq22agbAwzi89
+        OyQVn6inr21qUOzRgwoOAzAQuxAInCGSQoHXODnWFRoEUAkDMBBUKxpBALUwAOYQnFRTVtBrIXOEcqph
+        AFxl4oMDKG3Ymu171aga9TBYWPTgSjVpw8pyWv8fdGphsE5O5HlTEAXBcAhngq7xfrHHtKQeBgtbaREM
+        3GyB1WsMpTi/oHLoCYwo8AOKXkHPuGzDDpFZGIgOO4aBKMYwEMUYBqIYw0AUYxiIYgwDUVGv+QfMZtMC
+        XBIrAwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>76</value>
   </metadata>

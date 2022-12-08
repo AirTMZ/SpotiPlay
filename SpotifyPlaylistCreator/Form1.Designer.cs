@@ -126,6 +126,8 @@
             this.percentLabel1 = new System.Windows.Forms.TextBox();
             this.percentLabel4 = new System.Windows.Forms.TextBox();
             this.percentLabel5 = new System.Windows.Forms.TextBox();
+            this.exportLabel = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.songArt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songBack1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songArt6)).BeginInit();
@@ -177,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.newUserBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newUserExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newUserEnter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).BeginInit();
             this.SuspendLayout();
             // 
             // SplashTimer
@@ -1358,10 +1361,37 @@
             this.percentLabel5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.percentLabel5.Visible = false;
             // 
+            // exportLabel
+            // 
+            this.exportLabel.AutoSize = true;
+            this.exportLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.exportLabel.Font = new System.Drawing.Font("Ubuntu", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportLabel.ForeColor = System.Drawing.Color.White;
+            this.exportLabel.Location = new System.Drawing.Point(755, 368);
+            this.exportLabel.Name = "exportLabel";
+            this.exportLabel.Size = new System.Drawing.Size(177, 36);
+            this.exportLabel.TabIndex = 122;
+            this.exportLabel.Text = "Playlist Info";
+            this.exportLabel.Visible = false;
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Image = ((System.Drawing.Image)(resources.GetObject("logoutButton.Image")));
+            this.logoutButton.Location = new System.Drawing.Point(1048, 54);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(110, 35);
+            this.logoutButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoutButton.TabIndex = 123;
+            this.logoutButton.TabStop = false;
+            this.logoutButton.Visible = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // SpotiPlay
             // 
             this.ClientSize = new System.Drawing.Size(1687, 914);
             this.ControlBox = false;
+            this.Controls.Add(this.logoutButton);
+            this.Controls.Add(this.exportLabel);
             this.Controls.Add(this.percentLabel4);
             this.Controls.Add(this.percentLabel5);
             this.Controls.Add(this.percentLabel1);
@@ -1509,6 +1539,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.newUserBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newUserExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newUserEnter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1612,6 +1643,8 @@
         private System.Windows.Forms.TextBox percentLabel1;
         private System.Windows.Forms.TextBox percentLabel4;
         private System.Windows.Forms.TextBox percentLabel5;
+        private System.Windows.Forms.Label exportLabel;
+        private System.Windows.Forms.PictureBox logoutButton;
     }
 }
 
