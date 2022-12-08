@@ -211,6 +211,7 @@ namespace SpotifyPlaylistCreator
             {
                 string text = File.ReadAllText("debugProfileData.txt");
                 defaultCurlData(text, cmd);
+                playlistNameLabel.Text = "debug";
                 return;
             }
             if (UsernameInput.Text == "" || UsernameInput.Text == "Username‎" || TokenInput.Text == "" || TokenInput.Text == "Token‎")
@@ -432,17 +433,17 @@ namespace SpotifyPlaylistCreator
 
 
 
-            songName1.Show(); artistName1.Show(); timeLabel1.Show(); songArt1.Show();
+            songName1.Show(); artistName1.Show(); timeLabel1.Show(); songArt1.Show(); playSong1.Show();
             songBack1.Show();
-            songName2.Show(); artistName2.Show(); timeLabel2.Show(); songArt2.Show();
+            songName2.Show(); artistName2.Show(); timeLabel2.Show(); songArt2.Show(); playSong2.Show();
             songBack2.Show();
-            songName3.Show(); artistName3.Show(); timeLabel3.Show(); songArt3.Show();
+            songName3.Show(); artistName3.Show(); timeLabel3.Show(); songArt3.Show(); playSong3.Show();
             songBack3.Show();
-            songName4.Show(); artistName4.Show(); timeLabel4.Show(); songArt4.Show();
+            songName4.Show(); artistName4.Show(); timeLabel4.Show(); songArt4.Show(); playSong4.Show();
             songBack4.Show();
-            songName5.Show(); artistName5.Show(); timeLabel5.Show(); songArt5.Show();
+            songName5.Show(); artistName5.Show(); timeLabel5.Show(); songArt5.Show(); playSong5.Show();
             songBack5.Show();
-            songName6.Show(); artistName6.Show(); timeLabel6.Show(); songArt6.Show();
+            songName6.Show(); artistName6.Show(); timeLabel6.Show(); songArt6.Show(); playSong6.Show();
             songBack6.Show();
 
             playlistNameLabel.Show();
@@ -1332,7 +1333,7 @@ namespace SpotifyPlaylistCreator
             {
 
                 if ((s[i] >= 'A' && s[i] <= 'Z')
-                        || (s[i] >= 'a' && s[i] <= 'z'))
+                        || (s[i] >= 'a' && s[i] <= 'z') || (s[i] == ' '))
                 {
                     s[j] = s[i];
                     j++;
@@ -1343,13 +1344,12 @@ namespace SpotifyPlaylistCreator
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            token_label_back.Hide(); token_label.Hide(); logoutButton.Hide(); newUserExit.Hide(); newUserLabel.Hide(); exportLabel.Hide(); newUserInput.Hide(); newUserEnter.Hide();
-            playlistNameLabel.Hide(); songName1.Hide(); artistName1.Hide(); timeLabel1.Hide(); songArt1.Hide(); songBack1.Hide(); songName2.Hide(); artistName2.Hide(); timeLabel2.Hide(); songArt2.Hide(); songBack2.Hide(); songName3.Hide(); artistName3.Hide(); timeLabel3.Hide(); songArt3.Hide(); songBack3.Hide(); songName4.Hide(); artistName4.Hide(); timeLabel4.Hide(); songArt4.Hide(); songBack4.Hide(); songName5.Hide(); artistName5.Hide(); timeLabel5.Hide(); songArt5.Hide(); songBack5.Hide(); songName6.Hide(); artistName6.Hide(); timeLabel6.Hide(); songArt6.Hide(); songBack6.Hide(); stageBack.Hide();
+            playlistNameLabel.Text = "Current Playlist";
+            token_label_back.Hide(); token_label.Hide(); logoutButton.Hide(); newUserExit.Hide(); newUserLabel.Hide(); exportLabel.Hide(); newUserInput.Hide(); newUserEnter.Hide(); newUserBack.Hide();
+            playSong1.Hide(); playSong2.Hide(); playSong3.Hide(); playSong4.Hide(); playSong5.Hide(); playSong6.Hide(); playlistNameLabel.Hide(); songName1.Hide(); artistName1.Hide(); timeLabel1.Hide(); songArt1.Hide(); songBack1.Hide(); songName2.Hide(); artistName2.Hide(); timeLabel2.Hide(); songArt2.Hide(); songBack2.Hide(); songName3.Hide(); artistName3.Hide(); timeLabel3.Hide(); songArt3.Hide(); songBack3.Hide(); songName4.Hide(); artistName4.Hide(); timeLabel4.Hide(); songArt4.Hide(); songBack4.Hide(); songName5.Hide(); artistName5.Hide(); timeLabel5.Hide(); songArt5.Hide(); songBack5.Hide(); songName6.Hide(); artistName6.Hide(); timeLabel6.Hide(); songArt6.Hide(); songBack6.Hide(); stageBack.Hide();
             percentBar1.Hide(); genreLabel1.Hide(); genreBack1.Hide(); percentBar2.Hide(); genreLabel2.Hide(); genreBack2.Hide(); percentBar3.Hide(); genreLabel3.Hide(); genreBack3.Hide(); percentBar4.Hide(); genreLabel4.Hide(); genreBack4.Hide(); percentBar5.Hide(); genreLabel5.Hide(); genreBack5.Hide(); analysisLabel.Hide(); analysisBack.Hide(); percentLabel1.Hide(); percentLabel2.Hide(); percentLabel3.Hide(); percentLabel4.Hide(); percentLabel5.Hide();
             userLabel1.Hide(); profilePhoto1.Hide(); userBack1.Hide(); userLabel2.Hide(); profilePhoto2.Hide(); userBack2.Hide(); userLabel3.Hide(); profilePhoto3.Hide(); userBack3.Hide(); userLabel4.Hide(); profilePhoto4.Hide(); userBack4.Hide(); userLabel5.Hide(); profilePhoto5.Hide(); userBack5.Hide(); contributersLabel.Hide(); contributingBack.Hide();
             addUserButton.Hide(); exportButton.Hide();
-
-
             tabSaver.Show(); LogoImage.Show(); UsernameInput.Show(); UsernameBox.Show(); TokenInput.Show(); TokenBox.Show(); tokenButton.Show(); nextButton.Show(); MinimiseButton.Show(); ExitButton.Show(); TopBanner.Show();
             UsernameInput.Text = "Username‎";
             UsernameInput.ForeColor = Color.FromArgb(156, 163, 169);
@@ -1357,6 +1357,60 @@ namespace SpotifyPlaylistCreator
             TokenInput.ForeColor = Color.FromArgb(156, 163, 169);
             TokenInput.PasswordChar = '\0';
             tabSaver.Focus();
+        }
+
+        private void playSong1_Click(object sender, EventArgs e)
+        {
+            if(UsernameBox.Text == "debug")
+            {
+                return;
+            }
+            System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[4].Split(':').Last()}");
+        }
+
+        private void playSong2_Click(object sender, EventArgs e)
+        {
+            if (UsernameBox.Text == "debug")
+            {
+                return;
+            }
+            System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[9].Split(':').Last()}");
+        }
+
+        private void playSong3_Click(object sender, EventArgs e)
+        {
+            if (UsernameBox.Text == "debug")
+            {
+                return;
+            }
+            System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[14].Split(':').Last()}");
+        }
+
+        private void playSong4_Click(object sender, EventArgs e)
+        {
+            if (UsernameBox.Text == "debug")
+            {
+                return;
+            }
+            System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[19].Split(':').Last()}");
+        }
+
+        private void playSong5_Click(object sender, EventArgs e)
+        {
+            if (UsernameBox.Text == "debug")
+            {
+                return;
+            }
+            System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[24].Split(':').Last()}");
+        }
+
+        private void playSong6_Click(object sender, EventArgs e)
+        {
+                        if(UsernameBox.Text == "debug")
+            {
+                return;
+            }
+            System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[29].Split(':').Last()}");
         }
     }
 }

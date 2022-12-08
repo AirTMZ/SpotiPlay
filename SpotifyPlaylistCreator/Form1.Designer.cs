@@ -128,6 +128,12 @@
             this.percentLabel5 = new System.Windows.Forms.TextBox();
             this.exportLabel = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.PictureBox();
+            this.playSong1 = new System.Windows.Forms.PictureBox();
+            this.playSong2 = new System.Windows.Forms.PictureBox();
+            this.playSong3 = new System.Windows.Forms.PictureBox();
+            this.playSong4 = new System.Windows.Forms.PictureBox();
+            this.playSong5 = new System.Windows.Forms.PictureBox();
+            this.playSong6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.songArt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songBack1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songArt6)).BeginInit();
@@ -180,6 +186,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.newUserExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newUserEnter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong6)).BeginInit();
             this.SuspendLayout();
             // 
             // SplashTimer
@@ -750,9 +762,9 @@
             // exportButton
             // 
             this.exportButton.Image = ((System.Drawing.Image)(resources.GetObject("exportButton.Image")));
-            this.exportButton.Location = new System.Drawing.Point(859, 849);
+            this.exportButton.Location = new System.Drawing.Point(871, 854);
             this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(165, 44);
+            this.exportButton.Size = new System.Drawing.Size(142, 34);
             this.exportButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.exportButton.TabIndex = 78;
             this.exportButton.TabStop = false;
@@ -762,9 +774,9 @@
             // addUserButton
             // 
             this.addUserButton.Image = ((System.Drawing.Image)(resources.GetObject("addUserButton.Image")));
-            this.addUserButton.Location = new System.Drawing.Point(662, 849);
+            this.addUserButton.Location = new System.Drawing.Point(674, 854);
             this.addUserButton.Name = "addUserButton";
-            this.addUserButton.Size = new System.Drawing.Size(165, 44);
+            this.addUserButton.Size = new System.Drawing.Size(142, 34);
             this.addUserButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.addUserButton.TabIndex = 77;
             this.addUserButton.TabStop = false;
@@ -1386,10 +1398,94 @@
             this.logoutButton.Visible = false;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
+            // playSong1
+            // 
+            this.playSong1.Image = ((System.Drawing.Image)(resources.GetObject("playSong1.Image")));
+            this.playSong1.InitialImage = global::SpotifyPlaylistCreator.Properties.Resources.loading;
+            this.playSong1.Location = new System.Drawing.Point(1111, 238);
+            this.playSong1.Name = "playSong1";
+            this.playSong1.Size = new System.Drawing.Size(50, 50);
+            this.playSong1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.playSong1.TabIndex = 124;
+            this.playSong1.TabStop = false;
+            this.playSong1.Visible = false;
+            this.playSong1.Click += new System.EventHandler(this.playSong1_Click);
+            // 
+            // playSong2
+            // 
+            this.playSong2.Image = ((System.Drawing.Image)(resources.GetObject("playSong2.Image")));
+            this.playSong2.InitialImage = global::SpotifyPlaylistCreator.Properties.Resources.loading;
+            this.playSong2.Location = new System.Drawing.Point(1111, 345);
+            this.playSong2.Name = "playSong2";
+            this.playSong2.Size = new System.Drawing.Size(50, 50);
+            this.playSong2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.playSong2.TabIndex = 125;
+            this.playSong2.TabStop = false;
+            this.playSong2.Visible = false;
+            this.playSong2.Click += new System.EventHandler(this.playSong2_Click);
+            // 
+            // playSong3
+            // 
+            this.playSong3.Image = ((System.Drawing.Image)(resources.GetObject("playSong3.Image")));
+            this.playSong3.InitialImage = global::SpotifyPlaylistCreator.Properties.Resources.loading;
+            this.playSong3.Location = new System.Drawing.Point(1111, 448);
+            this.playSong3.Name = "playSong3";
+            this.playSong3.Size = new System.Drawing.Size(50, 50);
+            this.playSong3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.playSong3.TabIndex = 126;
+            this.playSong3.TabStop = false;
+            this.playSong3.Visible = false;
+            this.playSong3.Click += new System.EventHandler(this.playSong3_Click);
+            // 
+            // playSong4
+            // 
+            this.playSong4.Image = ((System.Drawing.Image)(resources.GetObject("playSong4.Image")));
+            this.playSong4.InitialImage = global::SpotifyPlaylistCreator.Properties.Resources.loading;
+            this.playSong4.Location = new System.Drawing.Point(1111, 553);
+            this.playSong4.Name = "playSong4";
+            this.playSong4.Size = new System.Drawing.Size(50, 50);
+            this.playSong4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.playSong4.TabIndex = 127;
+            this.playSong4.TabStop = false;
+            this.playSong4.Visible = false;
+            this.playSong4.Click += new System.EventHandler(this.playSong4_Click);
+            // 
+            // playSong5
+            // 
+            this.playSong5.Image = ((System.Drawing.Image)(resources.GetObject("playSong5.Image")));
+            this.playSong5.InitialImage = global::SpotifyPlaylistCreator.Properties.Resources.loading;
+            this.playSong5.Location = new System.Drawing.Point(1111, 658);
+            this.playSong5.Name = "playSong5";
+            this.playSong5.Size = new System.Drawing.Size(50, 50);
+            this.playSong5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.playSong5.TabIndex = 128;
+            this.playSong5.TabStop = false;
+            this.playSong5.Visible = false;
+            this.playSong5.Click += new System.EventHandler(this.playSong5_Click);
+            // 
+            // playSong6
+            // 
+            this.playSong6.Image = ((System.Drawing.Image)(resources.GetObject("playSong6.Image")));
+            this.playSong6.InitialImage = global::SpotifyPlaylistCreator.Properties.Resources.loading;
+            this.playSong6.Location = new System.Drawing.Point(1111, 763);
+            this.playSong6.Name = "playSong6";
+            this.playSong6.Size = new System.Drawing.Size(50, 50);
+            this.playSong6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.playSong6.TabIndex = 129;
+            this.playSong6.TabStop = false;
+            this.playSong6.Visible = false;
+            this.playSong6.Click += new System.EventHandler(this.playSong6_Click);
+            // 
             // SpotiPlay
             // 
             this.ClientSize = new System.Drawing.Size(1687, 914);
             this.ControlBox = false;
+            this.Controls.Add(this.playSong6);
+            this.Controls.Add(this.playSong5);
+            this.Controls.Add(this.playSong4);
+            this.Controls.Add(this.playSong3);
+            this.Controls.Add(this.playSong2);
+            this.Controls.Add(this.playSong1);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.exportLabel);
             this.Controls.Add(this.percentLabel4);
@@ -1540,6 +1636,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.newUserExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newUserEnter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playSong6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1645,6 +1747,12 @@
         private System.Windows.Forms.TextBox percentLabel5;
         private System.Windows.Forms.Label exportLabel;
         private System.Windows.Forms.PictureBox logoutButton;
+        private System.Windows.Forms.PictureBox playSong1;
+        private System.Windows.Forms.PictureBox playSong2;
+        private System.Windows.Forms.PictureBox playSong3;
+        private System.Windows.Forms.PictureBox playSong4;
+        private System.Windows.Forms.PictureBox playSong5;
+        private System.Windows.Forms.PictureBox playSong6;
     }
 }
 
