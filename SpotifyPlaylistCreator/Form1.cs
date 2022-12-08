@@ -372,7 +372,7 @@ namespace SpotifyPlaylistCreator
                     playlistNameLabel.Show();
                     stageBack.Show();
                     MessageBox.Show("Not enough song data for this user. Please try a different account. Logging out");
-                    Application.Exit();
+                    System.Windows.Forms.Application.Exit();
                     return;
                 }
                 songName1.Text = songName;
@@ -1006,7 +1006,11 @@ namespace SpotifyPlaylistCreator
         
         private void exportButton_Click(object sender, EventArgs e)
         {
-            
+            if(UsernameInput.Text == "debug")
+            {
+                MessageBox.Show("Sorry bud. Can't export a playlist in debug mode");
+                return;
+            }
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe"; cmd.StartInfo.RedirectStandardInput = true; cmd.StartInfo.RedirectStandardOutput = true; cmd.StartInfo.CreateNoWindow = true; cmd.StartInfo.UseShellExecute = false; cmd.Start();
 
