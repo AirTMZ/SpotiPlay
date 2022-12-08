@@ -1343,7 +1343,20 @@ namespace SpotifyPlaylistCreator
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("beep beep boop logged out");
+            token_label_back.Hide(); token_label.Hide(); logoutButton.Hide(); newUserExit.Hide(); newUserLabel.Hide(); exportLabel.Hide(); newUserInput.Hide(); newUserEnter.Hide();
+            playlistNameLabel.Hide(); songName1.Hide(); artistName1.Hide(); timeLabel1.Hide(); songArt1.Hide(); songBack1.Hide(); songName2.Hide(); artistName2.Hide(); timeLabel2.Hide(); songArt2.Hide(); songBack2.Hide(); songName3.Hide(); artistName3.Hide(); timeLabel3.Hide(); songArt3.Hide(); songBack3.Hide(); songName4.Hide(); artistName4.Hide(); timeLabel4.Hide(); songArt4.Hide(); songBack4.Hide(); songName5.Hide(); artistName5.Hide(); timeLabel5.Hide(); songArt5.Hide(); songBack5.Hide(); songName6.Hide(); artistName6.Hide(); timeLabel6.Hide(); songArt6.Hide(); songBack6.Hide(); stageBack.Hide();
+            percentBar1.Hide(); genreLabel1.Hide(); genreBack1.Hide(); percentBar2.Hide(); genreLabel2.Hide(); genreBack2.Hide(); percentBar3.Hide(); genreLabel3.Hide(); genreBack3.Hide(); percentBar4.Hide(); genreLabel4.Hide(); genreBack4.Hide(); percentBar5.Hide(); genreLabel5.Hide(); genreBack5.Hide(); analysisLabel.Hide(); analysisBack.Hide(); percentLabel1.Hide(); percentLabel2.Hide(); percentLabel3.Hide(); percentLabel4.Hide(); percentLabel5.Hide();
+            userLabel1.Hide(); profilePhoto1.Hide(); userBack1.Hide(); userLabel2.Hide(); profilePhoto2.Hide(); userBack2.Hide(); userLabel3.Hide(); profilePhoto3.Hide(); userBack3.Hide(); userLabel4.Hide(); profilePhoto4.Hide(); userBack4.Hide(); userLabel5.Hide(); profilePhoto5.Hide(); userBack5.Hide(); contributersLabel.Hide(); contributingBack.Hide();
+            addUserButton.Hide(); exportButton.Hide();
+
+
+            tabSaver.Show(); LogoImage.Show(); UsernameInput.Show(); UsernameBox.Show(); TokenInput.Show(); TokenBox.Show(); tokenButton.Show(); nextButton.Show(); MinimiseButton.Show(); ExitButton.Show(); TopBanner.Show();
+            UsernameInput.Text = "Username‎";
+            UsernameInput.ForeColor = Color.FromArgb(156, 163, 169);
+            TokenInput.Text = "Token‎";
+            TokenInput.ForeColor = Color.FromArgb(156, 163, 169);
+            TokenInput.PasswordChar = '\0';
+            tabSaver.Focus();
         }
     }
 }
