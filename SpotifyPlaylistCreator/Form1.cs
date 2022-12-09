@@ -580,7 +580,6 @@ namespace SpotifyPlaylistCreator
                 {
                     MessageBox.Show("user already in group");
                     newUserInput.Text = "";
-                    newUserEnter.Show();
                     return;
                 }
                 else
@@ -622,6 +621,7 @@ namespace SpotifyPlaylistCreator
                     genreAnalysis();
                 }
             }
+            newUserEnter.Show();
         }
         //new  user exit button interaction detection
         private void newUserExit_Click(object sender, EventArgs e)
