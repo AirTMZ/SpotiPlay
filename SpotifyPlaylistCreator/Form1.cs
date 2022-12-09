@@ -14,7 +14,7 @@ namespace SpotifyPlaylistCreator
 {
     public partial class SpotiPlay : Form
     {
-        // global returns for top 6
+        //global lsits and variables
         string href = null;
         string songName = null;
         string artistName = null;
@@ -31,10 +31,7 @@ namespace SpotifyPlaylistCreator
         List<string> user4 = new List<string>();
         List<string> user5 = new List<string>();
 
-
         List<string> artistIds = new List<string>();
-
-
 
         string newUserName = null;
         string newUserId = null;
@@ -201,9 +198,7 @@ namespace SpotifyPlaylistCreator
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
-
-
-    //the real code starts
+        //input validation for the login box, getting details from the input data, and going to the main program section
         private void NextButton_Click(object sender, EventArgs e)
         {
             Process cmd = new Process();
@@ -249,7 +244,7 @@ namespace SpotifyPlaylistCreator
 
             defaultCurlData(curlResponse, cmd);
         }
-
+        //get the defaul users profile data
         private void defaultCurlData(string curlResponse, Process cmd)
         {
             if (curlResponse.Length < 100)
@@ -360,6 +355,7 @@ namespace SpotifyPlaylistCreator
             }
         }
 
+        //get the default users top 6
         private void defaultTopSix(Process cmd)
         {
             href = "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=1";
@@ -429,10 +425,6 @@ namespace SpotifyPlaylistCreator
                 top6List.AddRange(user1);
             }
 
-
-
-
-
             songName1.Show(); artistName1.Show(); timeLabel1.Show(); songArt1.Show(); playSong1.Show();
             songBack1.Show();
             songName2.Show(); artistName2.Show(); timeLabel2.Show(); songArt2.Show(); playSong2.Show();
@@ -449,7 +441,7 @@ namespace SpotifyPlaylistCreator
             playlistNameLabel.Show();
             stageBack.Show();
         }
-
+        //profile curl data class decerialising
         public class jsonCurlData
         {
             public string display_name { get; set; }
@@ -461,6 +453,7 @@ namespace SpotifyPlaylistCreator
             public string url { get; set; }
         }
 
+        //find top six songs from one user
         private string topSix(string token, Process cmd, string apicommand)
         {
             try
@@ -501,6 +494,7 @@ namespace SpotifyPlaylistCreator
             return "fine";
             
         }
+        //curl data class decerialising
         public class topSixCurl
         {
             public List<Item> items { get; set; } //to item
@@ -528,8 +522,6 @@ namespace SpotifyPlaylistCreator
             public string name { get; set; } //artist name
             public string id { get; set; } //artist name
         }
-
-
 
         //song time formatter
         public static string msToHuman(long ms)
@@ -564,9 +556,7 @@ namespace SpotifyPlaylistCreator
             }
         }
 
-
-
-        //time for pain
+        //menu for adding new user
         private void addUserButton_Click(object sender, EventArgs e)
         {
             newUserExit.Show(); newUserInput.Show(); newUserEnter.Show(); newUserLabel.Show();
@@ -575,7 +565,7 @@ namespace SpotifyPlaylistCreator
             newUserExit.BringToFront(); newUserInput.BringToFront(); newUserEnter.BringToFront(); newUserLabel.BringToFront();
 
         }
-
+        //adding new user to group
         private void newUserEnter_Click(object sender, EventArgs e)
         {
             string token = null;
@@ -633,30 +623,27 @@ namespace SpotifyPlaylistCreator
                 }
             }
         }
-
+        //new  user exit button interaction detection
         private void newUserExit_Click(object sender, EventArgs e)
         {
             newUserExit.Hide(); newUserInput.Hide(); newUserEnter.Hide(); newUserLabel.Hide();
-            newUserBack.Hide(); exportLabel.Hide(); newUserInput.Hide();
+            newUserBack.Hide(); exportLabel.Hide(); newUserInput.Hide(); copyButton.Hide(); copyLabel.Hide();
             newUserInput.Text = "";
         }
-
         private void newUserExit_MouseHover(object sender, EventArgs e)
         {
             newUserExit.Image = Properties.Resources.exit_select;
         }
-
         private void newUserExit_MouseLeave(object sender, EventArgs e)
         {
             newUserExit.Image = Properties.Resources.exit_deselect;
         }
 
+        //get the users deatails
         private string getUserDetails(string token)
         {
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe"; cmd.StartInfo.RedirectStandardInput = true; cmd.StartInfo.RedirectStandardOutput = true; cmd.StartInfo.CreateNoWindow = true; cmd.StartInfo.UseShellExecute = false; cmd.Start();
-
-            
 
             //the actual request
             cmd.StandardInput.WriteLine($"curl -X \"GET\" \"https://api.spotify.com/v1/me\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" -H \"Authorization: Bearer {token}\"");
@@ -700,7 +687,7 @@ namespace SpotifyPlaylistCreator
             }
             return "yes";
         }
-
+        //add new users
         private void addUserSongs(string token)
         {
             Process cmd = new Process();
@@ -965,15 +952,14 @@ namespace SpotifyPlaylistCreator
 
                 totalUsers++;
             }
-            else if (totalUsers == 5) // no more
+            else if (totalUsers == 5)
             {
                 MessageBox.Show("User limit reached");
             }
         }
-
+        //display the top 6 songs
         private void displayTop6()
         {
-            
             songName1.Text = top6List[0]; //song name for first
             songName2.Text = top6List[5];
             songName3.Text = top6List[10];
@@ -1003,8 +989,7 @@ namespace SpotifyPlaylistCreator
             songArt6.ImageLocation = top6List[28];
         }
 
-        //more pain
-        
+        //create playlist without songs
         private void exportButton_Click(object sender, EventArgs e)
         {
             if(UsernameInput.Text == "debug")
@@ -1016,7 +1001,6 @@ namespace SpotifyPlaylistCreator
             cmd.StartInfo.FileName = "cmd.exe"; cmd.StartInfo.RedirectStandardInput = true; cmd.StartInfo.RedirectStandardOutput = true; cmd.StartInfo.CreateNoWindow = true; cmd.StartInfo.UseShellExecute = false; cmd.Start();
 
             //the actual request
-            
             cmd.StandardInput.WriteLine($"curl -X \"POST\" \"https://api.spotify.com/v1/users/{token_label.Text}/playlists\" --data \"{{\\\"name\\\":\\\"{playlistNameLabel.Text}\\\",\\\"description\\\":\\\"A playlist made with SpotiPlay\\\",\\\"public\\\":true}}\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" -H \"Authorization: Bearer {TokenInput.Text}\"");
             cmd.StandardInput.Flush(); cmd.StandardInput.Close();
 
@@ -1044,7 +1028,7 @@ namespace SpotifyPlaylistCreator
 
             sendPlaylistData(id, uriComplete);
         }
-
+        //send track data to already made playlist
         private void sendPlaylistData(string id, string uriComplete)
         {
             Process cmd = new Process();
@@ -1064,12 +1048,10 @@ namespace SpotifyPlaylistCreator
 
             cmd.WaitForExit();
             newUserInput.Text = $"https://open.spotify.com/playlist/{id}";
-            exportLabel.Show(); newUserExit.Show(); newUserBack.Show(); newUserInput.Show();
-            newUserBack.BringToFront(); newUserExit.BringToFront(); exportLabel.BringToFront(); newUserInput.BringToFront();
+            exportLabel.Show(); newUserExit.Show(); newUserBack.Show(); newUserInput.Show(); copyButton.Show();
+            newUserBack.BringToFront(); newUserExit.BringToFront(); exportLabel.BringToFront(); newUserInput.BringToFront(); copyButton.BringToFront();
         }
-
-
-
+        //compile uris
         private string compileUri()
         {
             string str = string.Empty;
@@ -1117,10 +1099,8 @@ namespace SpotifyPlaylistCreator
             catch
             {
             }
-
-
-
-
+            
+            //remove dupe uris and display as string
             var noDupes = allPlaylists.Distinct().ToList();
 
             foreach (var item in noDupes)
@@ -1135,22 +1115,16 @@ namespace SpotifyPlaylistCreator
             return str;
         }
 
-
-
-
+        //curl class decerialise
         public class playlistId
         {
             public string id { get; set; }
         }
 
-
-
-
-
-        //genre work
-
+        //genre analysis
         private void genreAnalysis()
         {
+            //curl request to get artist uri's and the genres of the artists
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe"; cmd.StartInfo.RedirectStandardInput = true; cmd.StartInfo.RedirectStandardOutput = true; cmd.StartInfo.CreateNoWindow = true; cmd.StartInfo.UseShellExecute = false; cmd.Start();
 
@@ -1169,22 +1143,19 @@ namespace SpotifyPlaylistCreator
             //catch the playlist return data
             string curlResponse = (cmd.StandardOutput.ReadToEnd());
             
-
             cmd.WaitForExit();
 
-
-
+            //format the response
             curlResponse = curlResponse.Substring(curlResponse.IndexOf('{'));
             string remove = curlResponse.Substring(curlResponse.LastIndexOf('}') + 1);
             curlResponse = curlResponse.Replace(remove, string.Empty);
             curlResponse = $"[{curlResponse}]";
 
-
             List<string> genreList = new List<string>();
 
             List<genreList> records = JsonConvert.DeserializeObject<List<genreList>>(curlResponse);
 
-
+            //make list of the genres
             foreach (genreList record in records)
             {
                 try
@@ -1200,13 +1171,14 @@ namespace SpotifyPlaylistCreator
                 {
                 }
             }
-
+            //turn the list into a string
             string genres = string.Join(",", genreList);
 
             List<string> genreSave = new List<string>();
             genreSave.AddRange(genreList);
             List<string> top5Genre = new List<string>();
 
+            //make a list of the top 5 genres
             try
             {
                 var first = genreSave.GroupBy(i => i).OrderByDescending(grp => grp.Count()).Select(grp => grp.Key).First();
@@ -1236,14 +1208,17 @@ namespace SpotifyPlaylistCreator
             {
 
             }
+            //make a list of how frequent the genres are
             List<int> frequency = new List<int>();
             int count = 0;
             while(count <= 4)
             {
+                //check for general genres e.g. pop, rock, dubstep within specific genres e.g. pop rock = pop and rock
                 string genresWithoutSpace = genres.Replace(" ", ",");
                 List<string> genreListAll = genresWithoutSpace.Split(',').ToList();
 
                 int mostFrequent = genreListAll.Where(x => x.Equals(top5Genre[count])).Count();
+                //if genre appears nowhere, check for the specific genres e.g. melodic dubstep
                 if (mostFrequent == 0)
                 {
                     mostFrequent = genreList.Where(x => x.Equals(top5Genre[count])).Count();
@@ -1251,7 +1226,7 @@ namespace SpotifyPlaylistCreator
                 frequency.Add(mostFrequent);
                 count++;
             }
-
+            //figure out percent
             double total = genreList.Count;
             int percent1 = Convert.ToInt32(Math.Round(frequency[0] / total * 100));
             int percent2 = Convert.ToInt32(Math.Round(frequency[1] / total * 100));
@@ -1259,13 +1234,14 @@ namespace SpotifyPlaylistCreator
             int percent4 = Convert.ToInt32(Math.Round(frequency[3] / total * 100));
             int percent5 = Convert.ToInt32(Math.Round(frequency[4] / total * 100));
 
-
+            //display percent
             percentLabel1.Text = $"{percent1}%";
             percentLabel2.Text = $"{percent2}%";
             percentLabel3.Text = $"{percent3}%";
             percentLabel4.Text = $"{percent4}%";
             percentLabel5.Text = $"{percent5}%";
 
+            //change bar size based on percent
             percentBar1.Size = new System.Drawing.Size(158, 65);
             percentBar1.Location = new Point(172, 325);
 
@@ -1287,7 +1263,7 @@ namespace SpotifyPlaylistCreator
             changePercentageImage(percentBar4, percentLabel4, percent4);
             changePercentageImage(percentBar5, percentLabel5, percent5);
         }
-
+        //change percent bar based on genre percentage
         private void changePercentageImage(PictureBox image, TextBox textBox, int percent)
         {
 
@@ -1313,18 +1289,16 @@ namespace SpotifyPlaylistCreator
 
             }
         }
-
+        //curl JSON decerialising object mapping
         public class genreArtist
         {
             public List<string> genres { get; set; }
         }
-
-
         public class genreList
         {
             public List<genreArtist> artists { get; set; }
         }
-
+        //input validation for playlist name input field
         private void playlistNameLabel_TextChanged(object sender, EventArgs e)
         {
             char[] s = playlistNameLabel.Text.ToCharArray();
@@ -1341,7 +1315,7 @@ namespace SpotifyPlaylistCreator
             }
             playlistNameLabel.Text = (String.Join("", s).Substring(0, j));
         }
-
+        //logout button
         private void logoutButton_Click(object sender, EventArgs e)
         {
             playlistNameLabel.Text = "Current Playlist";
@@ -1349,7 +1323,7 @@ namespace SpotifyPlaylistCreator
             playSong1.Hide(); playSong2.Hide(); playSong3.Hide(); playSong4.Hide(); playSong5.Hide(); playSong6.Hide(); playlistNameLabel.Hide(); songName1.Hide(); artistName1.Hide(); timeLabel1.Hide(); songArt1.Hide(); songBack1.Hide(); songName2.Hide(); artistName2.Hide(); timeLabel2.Hide(); songArt2.Hide(); songBack2.Hide(); songName3.Hide(); artistName3.Hide(); timeLabel3.Hide(); songArt3.Hide(); songBack3.Hide(); songName4.Hide(); artistName4.Hide(); timeLabel4.Hide(); songArt4.Hide(); songBack4.Hide(); songName5.Hide(); artistName5.Hide(); timeLabel5.Hide(); songArt5.Hide(); songBack5.Hide(); songName6.Hide(); artistName6.Hide(); timeLabel6.Hide(); songArt6.Hide(); songBack6.Hide(); stageBack.Hide();
             percentBar1.Hide(); genreLabel1.Hide(); genreBack1.Hide(); percentBar2.Hide(); genreLabel2.Hide(); genreBack2.Hide(); percentBar3.Hide(); genreLabel3.Hide(); genreBack3.Hide(); percentBar4.Hide(); genreLabel4.Hide(); genreBack4.Hide(); percentBar5.Hide(); genreLabel5.Hide(); genreBack5.Hide(); analysisLabel.Hide(); analysisBack.Hide(); percentLabel1.Hide(); percentLabel2.Hide(); percentLabel3.Hide(); percentLabel4.Hide(); percentLabel5.Hide();
             userLabel1.Hide(); profilePhoto1.Hide(); userBack1.Hide(); userLabel2.Hide(); profilePhoto2.Hide(); userBack2.Hide(); userLabel3.Hide(); profilePhoto3.Hide(); userBack3.Hide(); userLabel4.Hide(); profilePhoto4.Hide(); userBack4.Hide(); userLabel5.Hide(); profilePhoto5.Hide(); userBack5.Hide(); contributersLabel.Hide(); contributingBack.Hide();
-            addUserButton.Hide(); exportButton.Hide();
+            addUserButton.Hide(); exportButton.Hide(); copyButton.Hide(); copyLabel.Hide();
             tabSaver.Show(); LogoImage.Show(); UsernameInput.Show(); UsernameBox.Show(); TokenInput.Show(); TokenBox.Show(); tokenButton.Show(); nextButton.Show(); MinimiseButton.Show(); ExitButton.Show(); TopBanner.Show();
             UsernameInput.Text = "Username‎";
             UsernameInput.ForeColor = Color.FromArgb(156, 163, 169);
@@ -1358,7 +1332,7 @@ namespace SpotifyPlaylistCreator
             TokenInput.PasswordChar = '\0';
             tabSaver.Focus();
         }
-
+        //play song buttons
         private void playSong1_Click(object sender, EventArgs e)
         {
             if(UsernameBox.Text == "debug")
@@ -1367,7 +1341,6 @@ namespace SpotifyPlaylistCreator
             }
             System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[4].Split(':').Last()}");
         }
-
         private void playSong2_Click(object sender, EventArgs e)
         {
             if (UsernameBox.Text == "debug")
@@ -1376,7 +1349,6 @@ namespace SpotifyPlaylistCreator
             }
             System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[9].Split(':').Last()}");
         }
-
         private void playSong3_Click(object sender, EventArgs e)
         {
             if (UsernameBox.Text == "debug")
@@ -1385,7 +1357,6 @@ namespace SpotifyPlaylistCreator
             }
             System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[14].Split(':').Last()}");
         }
-
         private void playSong4_Click(object sender, EventArgs e)
         {
             if (UsernameBox.Text == "debug")
@@ -1394,7 +1365,6 @@ namespace SpotifyPlaylistCreator
             }
             System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[19].Split(':').Last()}");
         }
-
         private void playSong5_Click(object sender, EventArgs e)
         {
             if (UsernameBox.Text == "debug")
@@ -1403,14 +1373,19 @@ namespace SpotifyPlaylistCreator
             }
             System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[24].Split(':').Last()}");
         }
-
         private void playSong6_Click(object sender, EventArgs e)
         {
-                        if(UsernameBox.Text == "debug")
+            if(UsernameBox.Text == "debug")
             {
                 return;
             }
             System.Diagnostics.Process.Start($"https://open.spotify.com/track/{top6List[29].Split(':').Last()}");
+        }
+        //export copy button
+        private void copyButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(newUserInput.Text);
+            copyLabel.Show(); copyLabel.BringToFront();
         }
     }
 }

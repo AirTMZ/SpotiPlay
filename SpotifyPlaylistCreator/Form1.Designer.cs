@@ -134,6 +134,8 @@
             this.playSong4 = new System.Windows.Forms.PictureBox();
             this.playSong5 = new System.Windows.Forms.PictureBox();
             this.playSong6 = new System.Windows.Forms.PictureBox();
+            this.copyButton = new System.Windows.Forms.PictureBox();
+            this.copyLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.songArt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songBack1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songArt6)).BeginInit();
@@ -192,6 +194,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.playSong4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playSong5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playSong6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.copyButton)).BeginInit();
             this.SuspendLayout();
             // 
             // SplashTimer
@@ -856,7 +859,7 @@
             this.percentBar5.InitialImage = ((System.Drawing.Image)(resources.GetObject("percentBar5.InitialImage")));
             this.percentBar5.Location = new System.Drawing.Point(172, 683);
             this.percentBar5.Name = "percentBar5";
-            this.percentBar5.Size = new System.Drawing.Size(156, 65);
+            this.percentBar5.Size = new System.Drawing.Size(158, 65);
             this.percentBar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.percentBar5.TabIndex = 52;
             this.percentBar5.TabStop = false;
@@ -928,7 +931,7 @@
             this.percentBar2.InitialImage = ((System.Drawing.Image)(resources.GetObject("percentBar2.InitialImage")));
             this.percentBar2.Location = new System.Drawing.Point(172, 413);
             this.percentBar2.Name = "percentBar2";
-            this.percentBar2.Size = new System.Drawing.Size(156, 65);
+            this.percentBar2.Size = new System.Drawing.Size(158, 65);
             this.percentBar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.percentBar2.TabIndex = 43;
             this.percentBar2.TabStop = false;
@@ -1294,9 +1297,9 @@
             // newUserEnter
             // 
             this.newUserEnter.Image = ((System.Drawing.Image)(resources.GetObject("newUserEnter.Image")));
-            this.newUserEnter.Location = new System.Drawing.Point(761, 503);
+            this.newUserEnter.Location = new System.Drawing.Point(773, 508);
             this.newUserEnter.Name = "newUserEnter";
-            this.newUserEnter.Size = new System.Drawing.Size(165, 44);
+            this.newUserEnter.Size = new System.Drawing.Size(141, 34);
             this.newUserEnter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.newUserEnter.TabIndex = 113;
             this.newUserEnter.TabStop = false;
@@ -1476,10 +1479,37 @@
             this.playSong6.Visible = false;
             this.playSong6.Click += new System.EventHandler(this.playSong6_Click);
             // 
+            // copyButton
+            // 
+            this.copyButton.Image = ((System.Drawing.Image)(resources.GetObject("copyButton.Image")));
+            this.copyButton.Location = new System.Drawing.Point(773, 508);
+            this.copyButton.Name = "copyButton";
+            this.copyButton.Size = new System.Drawing.Size(141, 34);
+            this.copyButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.copyButton.TabIndex = 130;
+            this.copyButton.TabStop = false;
+            this.copyButton.Visible = false;
+            this.copyButton.Click += new System.EventHandler(this.copyButton_Click);
+            // 
+            // copyLabel
+            // 
+            this.copyLabel.AutoSize = true;
+            this.copyLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(18)))));
+            this.copyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(197)))), ((int)(((byte)(94)))));
+            this.copyLabel.Location = new System.Drawing.Point(684, 478);
+            this.copyLabel.Name = "copyLabel";
+            this.copyLabel.Size = new System.Drawing.Size(119, 13);
+            this.copyLabel.TabIndex = 131;
+            this.copyLabel.Text = "Playlist URL Copied";
+            this.copyLabel.Visible = false;
+            // 
             // SpotiPlay
             // 
             this.ClientSize = new System.Drawing.Size(1687, 914);
             this.ControlBox = false;
+            this.Controls.Add(this.copyLabel);
+            this.Controls.Add(this.copyButton);
             this.Controls.Add(this.playSong6);
             this.Controls.Add(this.playSong5);
             this.Controls.Add(this.playSong4);
@@ -1642,6 +1672,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.playSong4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playSong5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playSong6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.copyButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1753,6 +1784,8 @@
         private System.Windows.Forms.PictureBox playSong4;
         private System.Windows.Forms.PictureBox playSong5;
         private System.Windows.Forms.PictureBox playSong6;
+        private System.Windows.Forms.PictureBox copyButton;
+        private System.Windows.Forms.Label copyLabel;
     }
 }
 
