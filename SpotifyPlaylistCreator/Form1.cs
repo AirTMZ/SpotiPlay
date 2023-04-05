@@ -112,8 +112,10 @@ namespace SpotifyPlaylistCreator
         //Token Gen
         private void tokenButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Generate a token with all permissions, excluding:\nplaylist-read-public");
-            System.Diagnostics.Process.Start("http://shorturl.at/akAV4");
+            MessageBox.Show("Generate a token with all permissions");
+            Clipboard.SetText("dc09c01b68c34ea6a1d7c77eb9e3c578");
+            Clipboard.SetText("b4aeb4ded298493da938567c37cfca29");
+            System.Diagnostics.Process.Start("https://alecchen.dev/spotify-refresh-token/");
         }
 
         //pressing enter to force the next button
@@ -367,7 +369,7 @@ namespace SpotifyPlaylistCreator
                 {
                     playlistNameLabel.Show();
                     stageBack.Show();
-                    MessageBox.Show("Not enough song data for this user. Please try a different account. Logging out");
+                    MessageBox.Show("1 Not enough song data for this user. Please try a different account. Logging out");
                     System.Windows.Forms.Application.Exit();
                     return;
                 }
@@ -440,6 +442,8 @@ namespace SpotifyPlaylistCreator
 
             playlistNameLabel.Show();
             stageBack.Show();
+
+            Clipboard.SetText(songName5.Text);
         }
         //profile curl data class decerialising
         public class jsonCurlData
@@ -476,6 +480,7 @@ namespace SpotifyPlaylistCreator
                 curlResponse = curlResponse.Replace(remove, string.Empty);
                 curlResponse = $"[{curlResponse}]";
                 List<topSixCurl> records2 = JsonConvert.DeserializeObject<List<topSixCurl>>(curlResponse);
+                
                 foreach (topSixCurl record2 in records2)
                 {
                     songName = record2.items[0].name; //song name
@@ -659,6 +664,11 @@ namespace SpotifyPlaylistCreator
             curlResponse = $"[{curlResponse}]";
             if (curlResponse.Length < 150)
             {
+                if (token == "")
+                {
+                    MessageBox.Show("Sorry bud. You need to eneter a token");
+                    return "no";
+                }
                 MessageBox.Show("Sorry bud. The token has expired");
                 newUserInput.Text = "";
                 return "no";
@@ -700,7 +710,7 @@ namespace SpotifyPlaylistCreator
                 {
                     playlistNameLabel.Show();
                     stageBack.Show();
-                    MessageBox.Show("Not enough song data for this user. Please try a different account");
+                    MessageBox.Show("2 Not enough song data for this user. Please try a different account");
                     return;
                 }
 
@@ -760,7 +770,7 @@ namespace SpotifyPlaylistCreator
                 {
                     playlistNameLabel.Show();
                     stageBack.Show();
-                    MessageBox.Show("Not enough song data for this user. Please try a different account");
+                    MessageBox.Show("3 Not enough song data for this user. Please try a different account");
                     return;
                 }
                 user3.Add(songName); user3.Add(artistName); user3.Add(time); user3.Add(imageUrl); user3.Add(uri);
@@ -822,7 +832,7 @@ namespace SpotifyPlaylistCreator
                 {
                     playlistNameLabel.Show();
                     stageBack.Show();
-                    MessageBox.Show("Not enough song data for this user. Please try a different account");
+                    MessageBox.Show("4 Not enough song data for this user. Please try a different account");
                     return;
                 }
                 user4.Add(songName); user4.Add(artistName); user4.Add(time); user4.Add(imageUrl); user4.Add(uri);
@@ -891,7 +901,7 @@ namespace SpotifyPlaylistCreator
                 {
                     playlistNameLabel.Show();
                     stageBack.Show();
-                    MessageBox.Show("Not enough song data for this user. Please try a different account");
+                    MessageBox.Show("5 Not enough song data for this user. Please try a different account");
                     return;
                 }
                 user5.Add(songName); user5.Add(artistName); user5.Add(time); user5.Add(imageUrl); user5.Add(uri);
@@ -1001,7 +1011,7 @@ namespace SpotifyPlaylistCreator
             cmd.StartInfo.FileName = "cmd.exe"; cmd.StartInfo.RedirectStandardInput = true; cmd.StartInfo.RedirectStandardOutput = true; cmd.StartInfo.CreateNoWindow = true; cmd.StartInfo.UseShellExecute = false; cmd.Start();
 
             //the actual request
-            cmd.StandardInput.WriteLine($"curl -X \"POST\" \"https://api.spotify.com/v1/users/{token_label.Text}/playlists\" --data \"{{\\\"name\\\":\\\"{playlistNameLabel.Text}\\\",\\\"description\\\":\\\"A playlist made with SpotiPlay\\\",\\\"public\\\":true}}\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" -H \"Authorization: Bearer {TokenInput.Text}\"");
+            cmd.StandardInput.WriteLine($"curl -X \"POST\" \"https://api.spotify.com/v1/users/{token_label.Text}/playlists\" --data \"{{\\\"name\\\":\\\"{playlistNameLabel.Text}\\\",\\\"description\\\":\\\"A playlist made with SpotiPlay\\\",\\\"collaborative\\\":true,\\\"public\\\":false}}\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" -H \"Authorization: Bearer {TokenInput.Text}\"");
             cmd.StandardInput.Flush(); cmd.StandardInput.Close();
 
             //catch the playlist return data
@@ -1013,7 +1023,6 @@ namespace SpotifyPlaylistCreator
             string remove = curlResponse.Substring(curlResponse.LastIndexOf('}') + 1);
             curlResponse = curlResponse.Replace(remove, string.Empty);
             curlResponse = $"[{curlResponse}]";
-
             List<playlistId> records = JsonConvert.DeserializeObject<List<playlistId>>(curlResponse);
 
             string id = null;
@@ -1043,7 +1052,6 @@ namespace SpotifyPlaylistCreator
 
             //catch the playlist return data
             string curlResponse = (cmd.StandardOutput.ReadToEnd());
-
 
 
             cmd.WaitForExit();
