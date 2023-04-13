@@ -113,8 +113,7 @@ namespace SpotifyPlaylistCreator
         private void tokenButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Generate a token with all permissions");
-            Clipboard.SetText("dc09c01b68c34ea6a1d7c77eb9e3c578");
-            Clipboard.SetText("b4aeb4ded298493da938567c37cfca29");
+            Clipboard.SetText("dc09c01b68c34ea6a1d7c77eb9e3c578:b4aeb4ded298493da938567c37cfca29");
             System.Diagnostics.Process.Start("https://alecchen.dev/spotify-refresh-token/");
         }
 
@@ -442,8 +441,6 @@ namespace SpotifyPlaylistCreator
 
             playlistNameLabel.Show();
             stageBack.Show();
-
-            Clipboard.SetText(songName5.Text);
         }
         //profile curl data class decerialising
         public class jsonCurlData
@@ -583,8 +580,9 @@ namespace SpotifyPlaylistCreator
             {
                 if (users.Contains(newUserId) == true)
                 {
-                    MessageBox.Show("user already in group");
+                    MessageBox.Show("User already in group");
                     newUserInput.Text = "";
+                    newUserEnter.Show();
                     return;
                 }
                 else
@@ -626,9 +624,12 @@ namespace SpotifyPlaylistCreator
                     genreAnalysis();
                 }
             }
-            newUserEnter.Show();
+            else
+            {
+                newUserEnter.Show();
+            }
         }
-        //new  user exit button interaction detection
+        //new user exit button interaction detection
         private void newUserExit_Click(object sender, EventArgs e)
         {
             newUserExit.Hide(); newUserInput.Hide(); newUserEnter.Hide(); newUserLabel.Hide();
@@ -656,7 +657,6 @@ namespace SpotifyPlaylistCreator
 
             // removes clutter from response
             string curlResponse = (cmd.StandardOutput.ReadToEnd());
-
             cmd.WaitForExit();
             curlResponse = curlResponse.Substring(curlResponse.IndexOf('{'));
             string remove = curlResponse.Substring(curlResponse.LastIndexOf('}') + 1);
@@ -1343,7 +1343,7 @@ namespace SpotifyPlaylistCreator
         //play song buttons
         private void playSong1_Click(object sender, EventArgs e)
         {
-            if(UsernameBox.Text == "debug")
+            if(token_label.Text == "debug")
             {
                 return;
             }
@@ -1351,7 +1351,7 @@ namespace SpotifyPlaylistCreator
         }
         private void playSong2_Click(object sender, EventArgs e)
         {
-            if (UsernameBox.Text == "debug")
+            if (token_label.Text == "debug")
             {
                 return;
             }
@@ -1359,7 +1359,7 @@ namespace SpotifyPlaylistCreator
         }
         private void playSong3_Click(object sender, EventArgs e)
         {
-            if (UsernameBox.Text == "debug")
+            if (token_label.Text == "debug")
             {
                 return;
             }
@@ -1367,7 +1367,7 @@ namespace SpotifyPlaylistCreator
         }
         private void playSong4_Click(object sender, EventArgs e)
         {
-            if (UsernameBox.Text == "debug")
+            if (token_label.Text == "debug")
             {
                 return;
             }
@@ -1375,7 +1375,7 @@ namespace SpotifyPlaylistCreator
         }
         private void playSong5_Click(object sender, EventArgs e)
         {
-            if (UsernameBox.Text == "debug")
+            if (token_label.Text == "debug")
             {
                 return;
             }
@@ -1383,7 +1383,7 @@ namespace SpotifyPlaylistCreator
         }
         private void playSong6_Click(object sender, EventArgs e)
         {
-            if(UsernameBox.Text == "debug")
+            if(token_label.Text == "debug")
             {
                 return;
             }
